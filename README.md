@@ -373,12 +373,12 @@ python merge_accounts.py
 
 - `SERVERPUSHKEY`: Server 酱的 SendKey
 
-### Telegram Bot
+### 🤖 Telegram Bot
 
 - `TELEGRAM_BOT_TOKEN`: Telegram Bot 的 Token
 - `TELEGRAM_CHAT_ID`: Telegram Chat ID
 
-### Gotify 推送
+### 🔔 Gotify 推送
 
 - `GOTIFY_URL`: Gotify 服务的 URL 地址（例如: https://your-gotify-server/message）
 - `GOTIFY_TOKEN`: Gotify 应用的访问令牌

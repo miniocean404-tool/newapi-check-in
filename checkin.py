@@ -12,9 +12,8 @@ from datetime import datetime
 import stealth_requests as requests
 from dotenv import load_dotenv
 
-from tests.cloudflare import cloudflare_bypass
+from utils.balance import generate_balance_hash, load_balance_hash, save_balance_hash
 from utils.config import AccountConfig, AppConfig, load_accounts_config
-from utils.money import generate_balance_hash, load_balance_hash, save_balance_hash
 from utils.notify import notify
 from utils.playwright import get_waf_cookies_with_playwright
 
@@ -142,6 +141,9 @@ async def check_in_account(account: AccountConfig, account_index: int, app_confi
 	try:
 		# 将 cookies 转换为字符串格式添加到 headers
 		cookie_str = '; '.join([f'{k}={v}' for k, v in all_cookies.items()])
+
+		# 测试 cloudflare 绕过效果
+		# cloudflare_bypass(cookie_str, account.api_user)
 
 		headers = {
 			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
@@ -336,7 +338,6 @@ def run_main():
 	"""运行主函数的包装函数"""
 
 	try:
-		cloudflare_bypass()
 		exit_code = asyncio.run(main())
 		sys.exit(exit_code)
 	except KeyboardInterrupt:
