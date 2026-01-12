@@ -1,20 +1,34 @@
+# 使用方式
+# 安装：pip install pre-commit
+# 激活：pre-commit install
+# 自动运行：之后每次 git commit 时会自动运行这些检查
+# 手动运行：pre-commit run --all-files
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
+      # 删除行尾多余空格
       - id: trailing-whitespace
+      # 确保文件以换行符结尾
       - id: end-of-file-fixer
+      # 检查配置文件语法是否正确
       - id: check-yaml
       - id: check-json
       - id: check-toml
+      # 防止提交过大的文件
       - id: check-added-large-files
+      # 检测合并冲突标记
       - id: check-merge-conflict
       - id: check-case-conflict
+      # 检测是否误提交了私钥
       - id: detect-private-key
+      # 修复混合的行尾符
       - id: mixed-line-ending
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.6.9
     hooks:
       - id: ruff
+      # ruff-format: 代码自动格式化
       - id: ruff-format

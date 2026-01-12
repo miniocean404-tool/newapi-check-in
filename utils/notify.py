@@ -100,11 +100,7 @@ class NotificationKit:
 		# 确保优先级在有效范围内 (1-10)
 		priority = max(1, min(10, priority))
 
-		data = {
-			'title': title,
-			'message': content,
-			'priority': priority
-		}
+		data = {'title': title, 'message': content, 'priority': priority}
 
 		url = f'{self.gotify_url}?token={self.gotify_token}'
 		with httpx.Client(timeout=30.0) as client:

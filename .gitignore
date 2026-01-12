@@ -7,3 +7,18 @@ __pycache__
 balance_hash.txt
 
 .DS_Store
+
+.idea
+
+# User credentials and extracted data
+node_modules
+get_user/user.json
+get_user/anyrouter_accounts.json
+get_user/anyrouter_accounts.txt
+
+# Debug files
+get_user/debug_*.html
+get_user/debug_*.png
+
+account.json
+tests/cloudflare.py
