@@ -21,4 +21,3 @@ get_user/debug_*.html
 get_user/debug_*.png
 
 account.json
-tests/cloudflare.py
