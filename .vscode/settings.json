@@ -10,5 +10,6 @@
     "format": {
       "quote-style": "single"
     }
-  }
+  },
+  "python.languageServer": "None"
 }

@@ -75,10 +75,12 @@ class CheckinService:
 
 		# 添加签到专用请求头
 		checkin_headers = headers.copy()
-		checkin_headers.update({
-			'Content-Type': 'application/json',
-			'X-Requested-With': 'XMLHttpRequest',
-		})
+		checkin_headers.update(
+			{
+				'Content-Type': 'application/json',
+				'X-Requested-With': 'XMLHttpRequest',
+			}
+		)
 
 		sign_in_url = f'{provider_config.domain}{provider_config.sign_in_path}'
 		response = requests.post(sign_in_url, headers=checkin_headers, timeout=30)
@@ -120,6 +122,7 @@ class CheckinService:
 				success,
 				message == 'already checked in today',
 				message == '今日已签到',
+				message == '签到成功',
 			]
 
 			if any(success_conditions):
